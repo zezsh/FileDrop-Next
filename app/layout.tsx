@@ -4,9 +4,9 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
-  title: 'ZEZ | Web Development Agency',
+  title: 'File Drop | File Sharing Platform',
   description:
-    'ZEZ is a web development agency that specializes in creating custom websites and web applications for businesses and organizations.',
+    'File Drop is a file sharing platform that allows you to share files with your friends and family.',
 };
 
 export const viewport: Viewport = {
