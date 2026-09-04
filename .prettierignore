@@ -1,0 +1,9 @@
+node_modules
+.next
+public
+
+# shadcn/ui
+components/ui/
+components/ai-elements/
+pnpm-lock.yaml
+next-env.d.ts
