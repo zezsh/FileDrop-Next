@@ -1,12 +1,15 @@
-import Image from "next/image";
+import Image from 'next/image';
+import { HomePanel } from '@/components/home-panel';
 
 export default function Home() {
   return (
-    <div className="grid min-h-screen grid-cols-2">
-      <div />
-      <div className="relative">
+    <div className="flex h-dvh overflow-hidden">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col">
+        <HomePanel />
+      </div>
+      <div className="relative hidden min-h-0 w-1/2 shrink-0 lg:block">
         <Image
-          src="/img/home-bg.jpg"
+          src="/img/home-bg-2.jpg"
           alt=""
           fill
           sizes="50vw"

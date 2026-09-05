@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "title": "File Drop - ファイル共有プラットフォーム",
+    "description": "File Drop は、友だちや家族とファイルを共有できるプラットフォームです。"
+  },
+  "home": {
+    "title": "File Drop",
+    "subtitle": "送信コードでファイルを送り、6桁の受取コードで受け取ります。",
+    "send": "送信",
+    "receive": "受取",
+    "language": "言語",
+    "theme": "テーマ",
+    "themeLight": "ライト",
+    "themeDark": "ダーク",
+    "themeSystem": "システム"
+  },
+  "send": {
+    "files": "ファイル",
+    "dropHint": "ここにドロップするか、クリックして選択",
+    "addMore": "ファイルを追加",
+    "releaseToAdd": "離して追加",
+    "clearAll": "すべてのファイルを削除",
+    "removeFile": "{name} を削除",
+    "uploading": "ファイルをアップロード中",
+    "uploadingFile": "アップロード中 · {percent}%",
+    "sendCode": "送信コード",
+    "password": "パスワード",
+    "receivePassword": "受取パスワード",
+    "downloads": "ダウンロード回数",
+    "downloadLimit": "ダウンロード上限",
+    "expires": "有効期限",
+    "submit": "送信",
+    "submitting": "送信中",
+    "shareCode": "この受取コードを共有",
+    "copyCode": "コードをコピー",
+    "sendMore": "続けて送信"
+  },
+  "receive": {
+    "code": "受取コード",
+    "codeHint": "6桁の受取コードを入力すると自動で検索します。",
+    "lookingUp": "検索中",
+    "download": "ダウンロード",
+    "downloadAll": "すべてダウンロード",
+    "reenter": "コードを再入力",
+    "passwordTitle": "パスワードが必要です",
+    "passwordDescription": "このファイルは保護されています。パスワードを入力してください。",
+    "password": "パスワード",
+    "passwordEmpty": "パスワードを入力してください。",
+    "unlock": "解除",
+    "unlocking": "解除中"
+  },
+  "errors": {
+    "unknown": "問題が発生しました。",
+    "invalid_json": "リクエスト本文が無効です。",
+    "invalid_request": "入力内容を確認して再試行してください。",
+    "invalid_send_code": "送信コードが正しくありません。",
+    "invalid_receive_code": "6桁の受取コードを入力してください。",
+    "storage_not_configured": "ストレージが設定されていません。",
+    "receive_code_unavailable": "受取コードを割り当てできませんでした。",
+    "no_files": "少なくとも1つのファイルを選択してください。",
+    "drop_empty": "このコードにダウンロードできるファイルはありません。",
+    "file_list_mismatch": "ファイル一覧がアップロードと一致しません。",
+    "upload_failed": "{file} のアップロードに失敗しました。",
+    "upload_blocked": "アップロードがブロックされました。ストレージの CORS（PUT と Content-Type）を確認してください。",
+    "finalize_failed": "アップロードを完了できませんでした。",
+    "drop_not_found": "このコードのファイルが見つかりません。",
+    "download_limit_reached": "このファイルのダウンロード回数は残っていません。",
+    "password_required": "パスワードが必要です。",
+    "invalid_password": "パスワードが正しくありません。"
+  },
+  "success": {
+    "files_sent": "ファイルを送信しました",
+    "files_found": "ファイルが見つかりました",
+    "copied": "コピーしました"
+  }
+}

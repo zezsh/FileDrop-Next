@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "title": "File Drop - File Sharing Platform",
+    "description": "File Drop is a file sharing platform that allows you to share files with your friends and family."
+  },
+  "home": {
+    "title": "File Drop",
+    "subtitle": "Send files with a send code. Pick them up with a 6-digit receive code.",
+    "send": "Send",
+    "receive": "Receive",
+    "language": "Language",
+    "theme": "Theme",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSystem": "System"
+  },
+  "send": {
+    "files": "Files",
+    "dropHint": "Drop files here or click to choose",
+    "addMore": "Add more files",
+    "releaseToAdd": "Release to add files",
+    "clearAll": "Clear all files",
+    "removeFile": "Remove {name}",
+    "uploading": "Uploading files",
+    "uploadingFile": "Uploading · {percent}%",
+    "sendCode": "Send code",
+    "password": "Password",
+    "receivePassword": "Receive password",
+    "downloads": "Downloads",
+    "downloadLimit": "Download limit",
+    "expires": "Expires",
+    "submit": "Send",
+    "submitting": "Sending",
+    "shareCode": "Share this receive code",
+    "copyCode": "Copy code",
+    "sendMore": "Send more"
+  },
+  "receive": {
+    "code": "Receive code",
+    "codeHint": "Enter the full receive code to start automatically.",
+    "lookingUp": "Looking up",
+    "download": "Download",
+    "downloadAll": "Download all",
+    "reenter": "Re-enter code",
+    "passwordTitle": "Password required",
+    "passwordDescription": "This drop is protected. Enter the password to continue.",
+    "password": "Password",
+    "passwordEmpty": "Enter the password.",
+    "unlock": "Unlock",
+    "unlocking": "Unlocking"
+  },
+  "errors": {
+    "unknown": "Something went wrong.",
+    "invalid_json": "Invalid request body.",
+    "invalid_request": "Check the form values and try again.",
+    "invalid_send_code": "Send code is incorrect.",
+    "invalid_receive_code": "Enter the 6-digit receive code.",
+    "storage_not_configured": "Storage is not configured.",
+    "receive_code_unavailable": "Could not allocate a receive code.",
+    "no_files": "Select at least one file.",
+    "drop_empty": "This code has no downloadable files.",
+    "file_list_mismatch": "File list does not match the upload.",
+    "upload_failed": "Upload failed for {file}.",
+    "upload_blocked": "Upload blocked. Check storage CORS for PUT and Content-Type.",
+    "finalize_failed": "Could not finalize the upload.",
+    "drop_not_found": "No drop found for this code.",
+    "download_limit_reached": "This drop has no downloads left.",
+    "password_required": "Password required.",
+    "invalid_password": "Invalid password."
+  },
+  "success": {
+    "files_sent": "Files sent",
+    "files_found": "Files found",
+    "copied": "Copied"
+  }
+}

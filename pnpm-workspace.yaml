@@ -1,4 +1,6 @@
 allowBuilds:
+  '@parcel/watcher': true
+  '@swc/core': true
   argon2: true
   esbuild: true
   sharp: false

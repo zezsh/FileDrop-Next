@@ -1,6 +1,6 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -82,24 +82,24 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-    /* Toast Colors - Success */
-    --toast-success-bg: oklch(97% 0.04 145);
-    --toast-success-border: oklch(92% 0.06 145);
-    --toast-success-text: oklch(45% 0.12 145);
-    /* Toast Colors - Error */
-    --toast-error-bg: oklch(97% 0.04 25);
-    --toast-error-border: oklch(92% 0.06 25);
-    --toast-error-text: oklch(45% 0.14 25);
-    /* Toast Colors - Warning */
-    --toast-warning-bg: oklch(97% 0.04 85);
-    --toast-warning-border: oklch(92% 0.06 85);
-    --toast-warning-text: oklch(45% 0.14 85);
-    /* Toast Colors - Info */
-    --toast-info-bg: oklch(97% 0.03 240);
-    --toast-info-border: oklch(92% 0.05 240);
-    --toast-info-text: oklch(45% 0.12 240);
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
+  /* Toast Colors - Success */
+  --toast-success-bg: oklch(97% 0.04 145);
+  --toast-success-border: oklch(92% 0.06 145);
+  --toast-success-text: oklch(45% 0.12 145);
+  /* Toast Colors - Error */
+  --toast-error-bg: oklch(97% 0.04 25);
+  --toast-error-border: oklch(92% 0.06 25);
+  --toast-error-text: oklch(45% 0.14 25);
+  /* Toast Colors - Warning */
+  --toast-warning-bg: oklch(97% 0.04 85);
+  --toast-warning-border: oklch(92% 0.06 85);
+  --toast-warning-text: oklch(45% 0.14 85);
+  /* Toast Colors - Info */
+  --toast-info-bg: oklch(97% 0.03 240);
+  --toast-info-border: oklch(92% 0.05 240);
+  --toast-info-text: oklch(45% 0.12 240);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
 }
 
 .dark {
@@ -160,10 +160,59 @@
   body {
     @apply bg-background text-foreground;
   }
-  button:not(:disabled), [role="button"]:not(:disabled) {
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
     cursor: pointer;
   }
   html {
     @apply font-sans;
   }
+}
+
+@theme {
+  --font-sans:
+    system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+}
+
+html {
+  text-autospace: normal;
+  text-spacing-trim: normal;
+}
+
+/* Sonner Toast Customization: Center (Top/Bottom) Auto-Width & Centering */
+[data-sonner-toaster][data-x-position='center'] {
+  /* Ensure container spans full width for proper centering context */
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  transform: none !important;
+}
+
+[data-sonner-toaster][data-x-position='center'] [data-sonner-toast] {
+  /* Enable auto-width based on content */
+  width: fit-content !important;
+
+  /* Centering */
+  left: 0 !important;
+  right: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  /* Appearance */
+  @apply rounded-full;
+
+  /* Layout */
+  display: flex !important;
+  justify-content: center !important;
+
+  /* Responsive Max Widths using Math Logic (min() acts as ternary) */
+  /* min(PC_LIMIT, MOBILE_CALC) -> If screen is wide, use 356px; if narrow, use calc result */
+  max-width: min(
+    356px,
+    calc(100% - var(--mobile-offset-left, 0px) - var(--mobile-offset-right, 0px))
+  ) !important;
 }

@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "title": "File Drop - 文件分享平台",
+    "description": "File Drop 是一个文件分享平台，方便你和朋友、家人互传文件。"
+  },
+  "home": {
+    "title": "File Drop",
+    "subtitle": "用发送码上传文件，用 6 位提取码领取。",
+    "send": "发送",
+    "receive": "提取",
+    "language": "语言",
+    "theme": "外观",
+    "themeLight": "浅色",
+    "themeDark": "深色",
+    "themeSystem": "系统"
+  },
+  "send": {
+    "files": "文件",
+    "dropHint": "将文件拖到此处，或点击选择",
+    "addMore": "添加更多文件",
+    "releaseToAdd": "松开以添加文件",
+    "clearAll": "清除全部文件",
+    "removeFile": "移除 {name}",
+    "uploading": "正在上传文件",
+    "uploadingFile": "上传中 · {percent}%",
+    "sendCode": "发送码",
+    "password": "密码",
+    "receivePassword": "提取密码",
+    "downloads": "下载次数",
+    "downloadLimit": "下载次数上限",
+    "expires": "有效期",
+    "submit": "发送",
+    "submitting": "发送中",
+    "shareCode": "分享这个提取码",
+    "copyCode": "复制提取码",
+    "sendMore": "再发一批"
+  },
+  "receive": {
+    "code": "提取码",
+    "codeHint": "输入完整 6 位提取码后会自动查找。",
+    "lookingUp": "正在查找",
+    "download": "下载",
+    "downloadAll": "全部下载",
+    "reenter": "重新输入",
+    "passwordTitle": "需要密码",
+    "passwordDescription": "此文件包受密码保护，请输入密码继续。",
+    "password": "密码",
+    "passwordEmpty": "请输入密码。",
+    "unlock": "解锁",
+    "unlocking": "解锁中"
+  },
+  "errors": {
+    "unknown": "出了点问题。",
+    "invalid_json": "请求内容无效。",
+    "invalid_request": "请检查表单后重试。",
+    "invalid_send_code": "发送码不正确。",
+    "invalid_receive_code": "请输入 6 位提取码。",
+    "storage_not_configured": "存储未配置。",
+    "receive_code_unavailable": "无法分配提取码。",
+    "no_files": "请至少选择一个文件。",
+    "drop_empty": "此提取码没有可下载的文件。",
+    "file_list_mismatch": "文件列表与上传不匹配。",
+    "upload_failed": "{file} 上传失败。",
+    "upload_blocked": "上传被拦截。请检查存储的 CORS（PUT 与 Content-Type）。",
+    "finalize_failed": "无法完成上传。",
+    "drop_not_found": "找不到对应的文件包。",
+    "download_limit_reached": "此文件包已没有剩余下载次数。",
+    "password_required": "需要密码。",
+    "invalid_password": "密码不正确。"
+  },
+  "success": {
+    "files_sent": "文件已发送",
+    "files_found": "已找到文件",
+    "copied": "已复制"
+  }
+}
