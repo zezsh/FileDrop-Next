@@ -3,7 +3,7 @@ import createNextIntlPlugin from 'next-intl/plugin';
 
 const nextConfig: NextConfig = {
   serverExternalPackages: ['argon2', 'pg'],
-  // allowedDevOrigins: ['10.10.10.100'],
+  allowedDevOrigins: ['10.10.10.100'],
 };
 
 const withNextIntl = createNextIntlPlugin();

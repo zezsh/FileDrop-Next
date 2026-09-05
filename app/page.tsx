@@ -13,7 +13,7 @@ export default function Home() {
           alt=""
           fill
           sizes="50vw"
-          className="object-cover"
+          className="object-cover dark:brightness-[0.2]"
           priority
         />
       </div>

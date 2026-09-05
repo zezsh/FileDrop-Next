@@ -44,13 +44,20 @@ import {
 } from '@/components/ui/select';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { formatBytes } from '@/lib/format';
+import { MAX_EXPIRE_HOURS } from '@/lib/limits';
 import { ProgressValue } from '@/components/ui/progress';
-import { AppError, errorCodeFrom, errorFromUnknown } from '@/lib/errors';
+import { AppError, errorCodeFrom, errorFromUnknown, publicErrorCode } from '@/lib/errors';
 
 const expireUnits = [
   { label: 'h', value: 'h' },
   { label: 'D', value: 'd' },
 ] as const;
+
+const MAX_EXPIRE_DAYS = MAX_EXPIRE_HOURS / 24;
+
+function maxExpireAmount(unit: 'h' | 'd') {
+  return unit === 'd' ? MAX_EXPIRE_DAYS : MAX_EXPIRE_HOURS;
+}
 
 type UploadTarget = {
   id: string;
@@ -101,6 +108,7 @@ function putFile(url: string, file: File, onProgress: (percent: number) => void)
       reject(new AppError('upload_failed', { file: file.name }));
     });
     xhr.addEventListener('error', () => {
+      // Real cause: PUT intercepted (usually storage CORS for PUT / Content-Type). Add to logs later.
       reject(new AppError('upload_blocked'));
     });
     xhr.send(file);
@@ -125,6 +133,25 @@ export function SendForm() {
   const [isDragging, setIsDragging] = useState(false);
   const hasFiles = files.length > 0;
   const progress = totalUploadPercent(files, fileProgress);
+  const expireMax = maxExpireAmount(expireUnit);
+
+  function applyExpireAmount(raw: string, unit: 'h' | 'd' = expireUnit) {
+    if (raw === '') {
+      setExpireAmount(raw);
+      return;
+    }
+    const value = Number(raw);
+    if (!Number.isFinite(value)) {
+      return;
+    }
+    const max = maxExpireAmount(unit);
+    if (value > max) {
+      setExpireAmount(String(max));
+      toast.warning(t('expireCapped', { max }), { id: 'expire-capped' });
+      return;
+    }
+    setExpireAmount(raw);
+  }
 
   function addFiles(list: FileList | null) {
     if (!list) {
@@ -205,7 +232,7 @@ export function SendForm() {
       toast.success(tSuccess('files_sent'));
     } catch (err) {
       const mapped = errorFromUnknown(err);
-      const message = tErrors(mapped.code, mapped.vars);
+      const message = tErrors(publicErrorCode(mapped.code), mapped.vars);
       setError(message);
       toast.error(message);
     } finally {
@@ -282,7 +309,7 @@ export function SendForm() {
 
           <ButtonGroup className={cn(hasFiles ? 'ml-auto' : 'min-h-0 w-full flex-1')}>
             <Button
-              variant={hasFiles ? 'default' : 'outline'}
+              variant={hasFiles ? 'secondary' : 'outline'}
               disabled={pending}
               className={cn(
                 hasFiles
@@ -319,10 +346,11 @@ export function SendForm() {
             {files.length > 3 ? (
               <Button
                 type="button"
-                variant="destructive"
+                variant="secondary"
                 size="icon"
                 disabled={pending}
                 aria-label={t('clearAll')}
+                className="text-destructive"
                 onClick={() => {
                   setFiles([]);
                   setFileProgress({});
@@ -443,9 +471,9 @@ export function SendForm() {
                 id="expires"
                 type="number"
                 min={1}
-                max={expireUnit === 'd' ? 30 : 720}
+                max={expireMax}
                 value={expireAmount}
-                onChange={(event) => setExpireAmount(event.target.value)}
+                onChange={(event) => applyExpireAmount(event.target.value)}
                 required
                 className="text-center"
               />
@@ -457,7 +485,9 @@ export function SendForm() {
                     const unit = value === 'd' ? 'd' : 'h';
                     setExpireUnit(unit);
                     if (unit === 'd') {
-                      setExpireAmount('1');
+                      applyExpireAmount('1', unit);
+                    } else {
+                      applyExpireAmount(expireAmount, unit);
                     }
                   }}
                 >

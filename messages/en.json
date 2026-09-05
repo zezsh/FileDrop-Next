@@ -33,7 +33,8 @@
     "submitting": "Sending",
     "shareCode": "Share this receive code",
     "copyCode": "Copy code",
-    "sendMore": "Send more"
+    "sendMore": "Send more",
+    "expireCapped": "Expires set to the maximum of {max}"
   },
   "receive": {
     "code": "Receive code",
@@ -50,7 +51,7 @@
     "unlocking": "Unlocking"
   },
   "errors": {
-    "unknown": "Something went wrong.",
+    "unknown": "Server error.",
     "invalid_json": "Invalid request body.",
     "invalid_request": "Check the form values and try again.",
     "invalid_send_code": "Send code is incorrect.",

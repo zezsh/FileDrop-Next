@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FileDrop Next
+
+Temporary file transfer: send a drop, share a code, receive files.
+
+## Tech Stack
+
+| Layer           | Stack                                                                                                         |
+| --------------- | ------------------------------------------------------------------------------------------------------------- |
+| App             | [Next.js](https://nextjs.org) 16, [React](https://react.dev) 19, TypeScript                                   |
+| UI              | [Tailwind CSS](https://tailwindcss.com) 4, [shadcn/ui](https://ui.shadcn.com), [Base UI](https://base-ui.com) |
+| i18n / theme    | [next-intl](https://next-intl.dev), [next-themes](https://github.com/pacocoursey/next-themes)                 |
+| Database        | [Drizzle ORM](https://orm.drizzle.team), PostgreSQL                                                           |
+| Storage         | S3-compatible ([Cloudflare R2](https://developers.cloudflare.com/r2/), AWS S3)                                |
+| Validation      | [Zod](https://zod.dev)                                                                                        |
+| Package manager | [pnpm](https://pnpm.io) 11                                                                                    |
 
 ## Getting Started
 
-First, run the development server:
+Clone and install:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone git@github.com:zezsh/FileDrop-Next.git
+cd FileDrop-Next
+pnpm i
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Create a `.env` with the [environment variables](#environment-variables) below, then migrate and start the dev server:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm db:migrate
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000).
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[![Deploy with Vercel](https://vercel.com/button)](<https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzezsh%2FFileDrop-Next&project-name=filedrop-next&repository-name=FileDrop-Next&env=DATABASE_URL%2CS3_ENDPOINT%2CS3_REGION%2CS3_ACCESS_KEY_ID%2CS3_SECRET_ACCESS_KEY%2CS3_BUCKET_NAME%2CPASSWORD_KDF&envDefaults=%7B%22S3_REGION%22%3A%22auto%22%2C%22PASSWORD_KDF%22%3A%22pbkdf2%22%7D&envDescription=Postgres%20connection%20string%20and%20S3-compatible%20storage%20credentials%20(Cloudflare%20R2%2C%20AWS%20S3%2C%20etc).&envLink=https%3A%2F%2Fgithub.com%2Fzezsh%2FFileDrop-Next%23environment-variables>)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Click the button to clone this repository and create a Vercel project. The deploy flow will prompt you for the environment variables below.
+
+### Environment variables
+
+| Variable               | Required | Default  | Description                                     |
+| ---------------------- | -------- | -------- | ----------------------------------------------- |
+| `DATABASE_URL`         | Yes      | —        | PostgreSQL connection string                    |
+| `S3_ENDPOINT`          | Yes      | —        | S3-compatible API endpoint (e.g. Cloudflare R2) |
+| `S3_ACCESS_KEY_ID`     | Yes      | —        | Object storage access key                       |
+| `S3_SECRET_ACCESS_KEY` | Yes      | —        | Object storage secret key                       |
+| `S3_BUCKET_NAME`       | Yes      | —        | Bucket name                                     |
+| `S3_REGION`            | No       | `auto`   | Object storage region                           |
+| `PASSWORD_KDF`         | No       | `pbkdf2` | Password KDF: `pbkdf2` or `argon2`              |

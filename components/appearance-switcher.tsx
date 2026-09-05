@@ -44,7 +44,7 @@ export function AppearanceSwitcher() {
       <DropdownMenu>
         <DropdownMenuTrigger
           render={
-            <Button variant="outline" disabled={pending} aria-label={t('language')} />
+            <Button variant="outline" size="sm" disabled={pending} aria-label={t('language')} />
           }
         >
           {localeLabels[locale]}
@@ -66,7 +66,7 @@ export function AppearanceSwitcher() {
       </DropdownMenu>
       <Button
         variant="outline"
-        size="icon"
+        size="icon-sm"
         disabled={!mounted}
         aria-label={
           currentTheme === 'dark'
@@ -87,7 +87,7 @@ export function AppearanceSwitcher() {
           setTheme('light');
         }}
       >
-        <ThemeIcon />
+        <ThemeIcon className="pr-0.5" />
       </Button>
     </ButtonGroup>
   );

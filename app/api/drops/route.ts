@@ -32,6 +32,7 @@ export async function POST(request: Request) {
   try {
     getEnv();
   } catch {
+    // Real cause: missing or invalid env (DATABASE_URL / S3_*). Add to logs later.
     return jsonError('storage_not_configured', 500);
   }
 
@@ -61,6 +62,7 @@ export async function POST(request: Request) {
   }
 
   if (!drop) {
+    // Real cause: receive code collided after retries. Add to logs later.
     return jsonError('receive_code_unavailable', 500);
   }
 

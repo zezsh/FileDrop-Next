@@ -28,7 +28,7 @@ import {
 } from '@/components/ui/item';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Spinner } from '@/components/ui/spinner';
-import { AppError, errorCodeFrom, errorFromUnknown } from '@/lib/errors';
+import { AppError, errorCodeFrom, errorFromUnknown, publicErrorCode } from '@/lib/errors';
 import { formatBytes } from '@/lib/format';
 import { cn } from '@/lib/utils';
 
@@ -111,7 +111,7 @@ export function ReceiveForm() {
       toast.success(tSuccess('files_found'), { id: toastId });
     } catch (err) {
       const mapped = errorFromUnknown(err, 'drop_not_found');
-      const message = tErrors(mapped.code, mapped.vars);
+      const message = tErrors(publicErrorCode(mapped.code), mapped.vars);
       setFiles(null);
       toast.error(message, { id: toastId });
     } finally {

@@ -33,7 +33,8 @@
     "submitting": "送信中",
     "shareCode": "この受取コードを共有",
     "copyCode": "コードをコピー",
-    "sendMore": "続けて送信"
+    "sendMore": "続けて送信",
+    "expireCapped": "有効期限を上限の {max} に設定しました"
   },
   "receive": {
     "code": "受取コード",
@@ -50,23 +51,23 @@
     "unlocking": "解除中"
   },
   "errors": {
-    "unknown": "問題が発生しました。",
-    "invalid_json": "リクエスト本文が無効です。",
-    "invalid_request": "入力内容を確認して再試行してください。",
-    "invalid_send_code": "送信コードが正しくありません。",
-    "invalid_receive_code": "6桁の受取コードを入力してください。",
-    "storage_not_configured": "ストレージが設定されていません。",
-    "receive_code_unavailable": "受取コードを割り当てできませんでした。",
-    "no_files": "少なくとも1つのファイルを選択してください。",
-    "drop_empty": "このコードにダウンロードできるファイルはありません。",
-    "file_list_mismatch": "ファイル一覧がアップロードと一致しません。",
-    "upload_failed": "{file} のアップロードに失敗しました。",
-    "upload_blocked": "アップロードがブロックされました。ストレージの CORS（PUT と Content-Type）を確認してください。",
-    "finalize_failed": "アップロードを完了できませんでした。",
-    "drop_not_found": "このコードのファイルが見つかりません。",
-    "download_limit_reached": "このファイルのダウンロード回数は残っていません。",
-    "password_required": "パスワードが必要です。",
-    "invalid_password": "パスワードが正しくありません。"
+    "unknown": "サーバーエラー",
+    "invalid_json": "リクエスト本文が無効です",
+    "invalid_request": "入力内容を確認して再試行してください",
+    "invalid_send_code": "送信コードが正しくありません",
+    "invalid_receive_code": "6桁の受取コードを入力してください",
+    "storage_not_configured": "ストレージが設定されていません",
+    "receive_code_unavailable": "受取コードを割り当てできませんでした",
+    "no_files": "少なくとも1つのファイルを選択してください",
+    "drop_empty": "このコードにダウンロードできるファイルはありません",
+    "file_list_mismatch": "ファイル一覧がアップロードと一致しません",
+    "upload_failed": "{file} のアップロードに失敗しました",
+    "upload_blocked": "アップロードがブロックされました",
+    "finalize_failed": "アップロードを完了できませんでした",
+    "drop_not_found": "このコードのファイルが見つかりません",
+    "download_limit_reached": "このファイルのダウンロード回数は残っていません",
+    "password_required": "パスワードが必要です",
+    "invalid_password": "パスワードが正しくありません"
   },
   "success": {
     "files_sent": "ファイルを送信しました",

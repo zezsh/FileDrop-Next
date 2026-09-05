@@ -57,3 +57,15 @@ export function errorFromUnknown(err: unknown, fallback: ErrorCode = 'unknown') 
   }
   return { code: fallback };
 }
+
+const internalErrorCodes = [
+  'upload_blocked',
+  'storage_not_configured',
+  'receive_code_unavailable',
+  'file_list_mismatch',
+  'finalize_failed',
+] as const;
+
+export function publicErrorCode(code: ErrorCode): ErrorCode {
+  return (internalErrorCodes as readonly string[]).includes(code) ? 'unknown' : code;
+}
